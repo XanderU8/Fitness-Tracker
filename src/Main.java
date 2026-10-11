@@ -8,7 +8,7 @@ public class Main {
         window.setSize(1000,800);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(1, 4));
+        panel.setLayout(new GridLayout(1, 4,45,0));
 
         JPanel secondPanel = new JPanel();
         secondPanel.setLayout(new GridLayout(1,1));
@@ -54,7 +54,7 @@ public class Main {
         window.add(panel, BorderLayout.NORTH);
         window.add(secondPanel, BorderLayout.CENTER);
 
-
+/// Just a litle change)
         window.setVisible(true);
 
         }

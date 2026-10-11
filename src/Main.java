@@ -10,6 +10,9 @@ public class Main {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 4,45,0));
 
+        panel.setBorder(BorderFactory.createEmptyBorder(45,30,0,30));
+                        ///A little change by Buttons.
+
         JPanel secondPanel = new JPanel();
         secondPanel.setLayout(new GridLayout(1,1));
 
@@ -25,7 +28,8 @@ public class Main {
 
         Object [][] data  = {
                 {20, 12, 2000, 5000},
-                {25, 28, 1500, 4500}
+                {25, 28, 1500, 4500},
+                {30, 10, 3500, 8000}
         }; //// That is also an array for JTable.
 
 
@@ -39,22 +43,29 @@ public class Main {
 
 
 
-        JTable trakerTabel = new JTable(data, dataUps_CalloriesArr );///Create an Table and adding arrays.
+        JTable trakerTabel = new JTable(data, dataUps_CalloriesArr ){///Create an Table and adding arrays.
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+             }   ///That is an another thing to cannot change anything in Table
+        };
+
         JScrollPane scrollPane = new JScrollPane(trakerTabel);       ///And creating a Empty Border.
         scrollPane.setBorder(BorderFactory.createEmptyBorder(350,50,0,50));
 
 
         window.setLayout(new BorderLayout());
-         panel.add(pushupsButton);
-         panel.add(pullupsButton);
-         panel.add(calloriesButton);
-         panel.add(runningButton);
-         secondPanel.add(scrollPane);
+        panel.add(pushupsButton);
+        panel.add(pullupsButton);
+        panel.add(calloriesButton);
+        panel.add(runningButton);
+        secondPanel.add(scrollPane);
 
         window.add(panel, BorderLayout.NORTH);
         window.add(secondPanel, BorderLayout.CENTER);
 
-/// Just a litle change)
+
         window.setVisible(true);
 
         }

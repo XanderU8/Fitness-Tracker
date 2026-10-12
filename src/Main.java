@@ -19,6 +19,7 @@ public class Main {
 //----------------------------------------------------------------------------------
 
         String [] dataUps_CalloriesArr = {
+                "Day:",
                 "Push-Ups",
                 "Pull-Ups",
                 "Running",
@@ -27,11 +28,15 @@ public class Main {
 
 
         Object [][] data  = {
-                {20, 12, 2000, 5000},
-                {25, 28, 1500, 4500},
-                {30, 10, 3500, 8000}
+                {"          Monday", 20, 12, 2000, 3000},
+                {"          Tuesday", 25, 28, 1500, 4500},
+                {"          Wednesday", 30, 10, 3500, 5000},
+                {"          Thursday", 50, 23, 3020, 3500},
+                {"          Friday", 80, 50, 4000, 2000},
+                {"          Saturday", 75, 45, 3800, 2300},
+                {"          Sunday", 30, 15, 1800, 3500}
         }; //// That is also an array for JTable.
-
+            ///And of cource i have added days for beauty
 
 
         JButton pushupsButton = new JButton("Push-Ups");
@@ -43,7 +48,7 @@ public class Main {
 
 
 
-        JTable trakerTabel = new JTable(data, dataUps_CalloriesArr ){///Create an Table and adding arrays.
+        JTable trakerTabel = new JTable(data, dataUps_CalloriesArr ){ ///Create an Table and adding arrays.
 
         @Override
         public boolean isCellEditable(int row, int column) {

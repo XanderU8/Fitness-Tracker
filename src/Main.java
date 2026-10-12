@@ -10,7 +10,7 @@ public class Main {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 4,45,0));
 
-        panel.setBorder(BorderFactory.createEmptyBorder(45,30,0,30));
+        panel.setBorder(BorderFactory.createEmptyBorder(90,30,0,30));
                         ///A little change by Buttons.
 
         JPanel secondPanel = new JPanel();
@@ -28,13 +28,13 @@ public class Main {
 
 
         Object [][] data  = {
-                {"          Monday", 20, 12, 2000, 3000},
-                {"          Tuesday", 25, 28, 1500, 4500},
-                {"          Wednesday", 30, 10, 3500, 5000},
-                {"          Thursday", 50, 23, 3020, 3500},
-                {"          Friday", 80, 50, 4000, 2000},
-                {"          Saturday", 75, 45, 3800, 2300},
-                {"          Sunday", 30, 15, 1800, 3500}
+                {"          MONDAY", 20, 12, 2000, 3000},
+                {"          TUESDAY", 25, 28, 1500, 4500},
+                {"          WEDNESDAY", 30, 10, 3500, 5000},
+                {"          THURSDAY", 50, 23, 3020, 3500},
+                {"          FRIDAY", 80, 50, 4000, 2000},
+                {"          SATURDAY", 75, 45, 3800, 2300},
+                {"          SUNDAY", 30, 15, 1800, 3500}
         }; //// That is also an array for JTable.
             ///And of cource i have added days for beauty
 
@@ -70,8 +70,30 @@ public class Main {
         window.add(panel, BorderLayout.NORTH);
         window.add(secondPanel, BorderLayout.CENTER);
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ///The CardBoard creating
+
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        CardLayout cardLayout = new CardLayout();
+
+        JPanel panelForCardLayout = new JPanel(cardLayout);
+
+        DashBoardPanel dashBoardPanel = new DashBoardPanel(cardLayout, panelForCardLayout);
+
+        PushUpsPanel pushUpsPanel = new PushUpsPanel(cardLayout, panelForCardLayout);
+
+        panelForCardLayout.add(dashBoardPanel, "dashboard");
+        panelForCardLayout.add(pushUpsPanel, "push-ups");
+
+        window.add((panelForCardLayout));
+
+        cardLayout.show(panelForCardLayout, "dashboard");
+
 
         window.setVisible(true);
 
+
+///Actually something is wrong. I don´t know, but i did something wrong so because of that it doesn´t show the Table.
         }
 }

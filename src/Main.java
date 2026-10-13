@@ -73,22 +73,22 @@ public class Main {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ///The CardBoard creating
 
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        CardLayout cardLayout = new CardLayout();
-
-        JPanel panelForCardLayout = new JPanel(cardLayout);
-
-        DashBoardPanel dashBoardPanel = new DashBoardPanel(cardLayout, panelForCardLayout);
-
-        PushUpsPanel pushUpsPanel = new PushUpsPanel(cardLayout, panelForCardLayout);
-
-        panelForCardLayout.add(dashBoardPanel, "dashboard");
-        panelForCardLayout.add(pushUpsPanel, "push-ups");
-
-        window.add((panelForCardLayout));
-
-        cardLayout.show(panelForCardLayout, "dashboard");
+//        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//
+//        CardLayout cardLayout = new CardLayout();
+//
+//        JPanel panelForCardLayout = new JPanel(cardLayout);
+//
+//        DashBoardPanel dashBoardPanel = new DashBoardPanel(cardLayout, panelForCardLayout);
+//
+//        PushUpsPanel pushUpsPanel = new PushUpsPanel(cardLayout, panelForCardLayout);
+//
+//        panelForCardLayout.add(dashBoardPanel, "dashboard");
+//        panelForCardLayout.add(pushUpsPanel, "push-ups");
+//
+//        window.add((panelForCardLayout));
+//
+//        cardLayout.show(panelForCardLayout, "dashboard");
 
 
         window.setVisible(true);

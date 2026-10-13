@@ -9,37 +9,63 @@ public class PushUpsPanel extends JPanel {
 
 
 
+
     public PushUpsPanel() {
 
         JFrame secondPushUpsWindow = new JFrame();
         secondPushUpsWindow.setSize(1000,800);
-        setLayout(new BorderLayout());
 
-        JPanel pushUpsForTitleName = new JPanel();
-        pushUpsForTitleName.setLayout(new GridLayout(1,1));
+
+        JPanel panelForPushUpsTitle = new JPanel(new BorderLayout());
+
+        panelForPushUpsTitle.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
+
+
+        JPanel exitButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
     ///At first i made set an BorderLayout, and an pushUps Panel. And now i have to create buttons for "Add, delete, show push-Ups.
         /// But at first of cource do not forget about Label
 
 
-        JLabel pushUpsLabelTitle = new JLabel("Push-Ups menu");
-        pushUpsLabelTitle.add(pushUpsLabelTitle);
-    ///And here we go with buttons creating...
+        JLabel pushUpsLabelTitle = new JLabel("PUSH-Ups MENU");
+        pushUpsLabelTitle.setFont(new Font("Arial", Font.BOLD, 30)); /// It´s made for the Title beauty
+        pushUpsLabelTitle.setHorizontalAlignment(SwingConstants.CENTER);
+
+
+
+        ///And here we go with buttons creating...
 
         JButton addPushUpsButton = new JButton("Add Push-Ups");
         JButton removePushUpsButton = new JButton("Remove Push-Ups");
         JButton showPushUpsInfo = new JButton("Show Push-Ups Information");
         JButton showAveragePushUpsInfo = new JButton("Show average Push-Ups training"); ///Bonus button)))
 
+        JButton exitButton = new JButton("Back>");
+//        exitButton.setPreferredSize(new Dimension(80,30));
+        exitButtonPanel.add(exitButton);
+
+        panelForPushUpsTitle.add(exitButtonPanel, BorderLayout.WEST);
+        panelForPushUpsTitle.add(pushUpsLabelTitle, BorderLayout.CENTER); /// Also I didn´t know that it´s possible to add an BordeLayout inside adding an variable.
+
 
         JPanel panelForButtons = new JPanel(); ///A new Panel for Buttons.
-        panelForButtons.setLayout(new GridLayout(4,1));
+        panelForButtons.setLayout(new GridLayout(4,1,0,50));
+        panelForButtons.setBorder(BorderFactory.createEmptyBorder(90,260,90,260));
+
+
+
         panelForButtons.add(addPushUpsButton);
         panelForButtons.add(removePushUpsButton);
         panelForButtons.add(showPushUpsInfo);
         panelForButtons.add(showAveragePushUpsInfo);
 
+
+        secondPushUpsWindow.add(panelForPushUpsTitle, BorderLayout.NORTH);
+        secondPushUpsWindow.add(panelForButtons, BorderLayout.CENTER);
+
+
         secondPushUpsWindow.setVisible(true);
 
     }
 }
+

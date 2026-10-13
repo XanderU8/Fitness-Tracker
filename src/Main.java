@@ -91,9 +91,9 @@ public class Main {
 //        cardLayout.show(panelForCardLayout, "dashboard");
 
 
-        window.setVisible(true);
+//        window.setVisible(true);
 
+        new PushUpsPanel();
 
-///Actually something is wrong. I don´t know, but i did something wrong so because of that it doesn´t show the Table.
         }
 }

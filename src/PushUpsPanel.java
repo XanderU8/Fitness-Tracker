@@ -10,12 +10,7 @@ public class PushUpsPanel extends JPanel {
 
 
 ///         Add public
-    public PushUpsPanel() {
-
-///     Add a CardLayout and a Panel for cardLayout
-        CardLayout cardLayout = new CardLayout();
-        JPanel container = new JPanel(cardLayout);
-
+    public PushUpsPanel(CardLayout cardLayout, JPanel container) {
 
         setLayout(new BorderLayout());
 
@@ -31,18 +26,19 @@ public class PushUpsPanel extends JPanel {
         pushUpsLabelTitle.setFont(new Font("Arial", Font.BOLD, 30)); /// It´s made for the Title beauty
         pushUpsLabelTitle.setHorizontalAlignment(SwingConstants.CENTER);
 
-
 ///         Push-Ups Buttons: Add, remove, show and average buttons
         JButton addPushUpsButton = new JButton("Add Push-Ups");
         JButton removePushUpsButton = new JButton("Remove Push-Ups");
         JButton showPushUpsInfo = new JButton("Show Push-Ups Information");
         JButton showAveragePushUpsInfo = new JButton("Show average Push-Ups training"); ///Bonus button)))
 
-///         Exit button. Adding "Exit" button in "exitButtonPanel"
+///         Exit button.           Adding "Exit" button in "exitButtonPanel"
         JButton exitButton = new JButton("Back>");
         exitButton.addActionListener(event -> {
-
+        cardLayout.show(container,"Main");
         });
+
+///         Adding variable "exitButton" in panel
         exitButtonPanel.add(exitButton);
 
 ///         Add variabels in Panel and setting sides by "BorderLayout"

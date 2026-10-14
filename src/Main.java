@@ -14,10 +14,13 @@ public class Main {
 
 
 ///           Push-Ups Panel
-        PushUpsPanel pushUpsPanel = new PushUpsPanel();
+        PushUpsPanel pushUpsPanel = new PushUpsPanel(cardLayout,container);
 ///            Add the variable in container (CardLayout)
         container.add(pushUpsPanel, "Push-Ups");
 
+///           PullUpsPanel
+        PullUpsPanel pullUpsPanel = new PullUpsPanel(cardLayout,container);
+        container.add(pullUpsPanel, "Pull-Ups");
 
 ///            Panel for Buttons
         JPanel panel = new JPanel();
@@ -62,7 +65,7 @@ public class Main {
 
         JButton pullupsButton = new JButton("Pull-Ups");
         pullupsButton.addActionListener(event -> {
-
+            cardLayout.show(container, "Pull-Ups");
         });
 
         JButton runningButton = new JButton("Running");
@@ -110,7 +113,7 @@ public class Main {
 
 ///           Adding mainPanel in container
         container.add(mainPanel, "Main");
-        container.add(pushUpsPanel, "Push-Ups");
+
 
 //--------------------------------------------------------------------------------------
 
@@ -119,7 +122,7 @@ public class Main {
         cardLayout.show(container, "Main");
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        new PullUpsPanel();
+
         window.setVisible(true);
     }
 }

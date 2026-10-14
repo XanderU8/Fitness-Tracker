@@ -4,11 +4,11 @@ import java.awt.*;
 public class PullUpsPanel extends JPanel{
 
 ///         Add public PullUps
-        public PullUpsPanel(){
+        public PullUpsPanel(CardLayout cardLayout, JPanel container){
+                setLayout(new BorderLayout());
 
 
-        JFrame pullUpsWindow = new JFrame("PullUps");
-        pullUpsWindow.setSize(1000,800);
+
 
 
         JPanel panelForTitle = new JPanel(new BorderLayout());
@@ -45,6 +45,11 @@ public class PullUpsPanel extends JPanel{
 
 
         JButton backPullUpsButton = new JButton("Back>");
+        backPullUpsButton.addActionListener(event -> {
+                cardLayout.show(container, "Main");
+        });
+
+
         panelForExitButton.add(backPullUpsButton);
 
         panelForTitle.add(panelForExitButton, BorderLayout.WEST);
@@ -68,10 +73,10 @@ public class PullUpsPanel extends JPanel{
 
 
 
-        pullUpsWindow.add(panelForTitle, BorderLayout.NORTH);
-        pullUpsWindow.add(panelForButtons, BorderLayout.CENTER);
+        add(panelForTitle, BorderLayout.NORTH);
+        add(panelForButtons, BorderLayout.CENTER);
 
 
-        pullUpsWindow.setVisible(true);
-}
+        setVisible(true);
+        }
 }

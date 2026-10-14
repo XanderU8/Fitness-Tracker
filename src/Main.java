@@ -5,44 +5,43 @@ public class Main {
     public static void main(String[] args) {
 
         JFrame window = new JFrame("Menu");
-        window.setSize(1000,800);
+        window.setSize(1000, 800);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    ///       CardLayout
+        ///       CardLayout
         CardLayout cardLayout = new CardLayout();
         JPanel container = new JPanel(cardLayout);
 
+
 ///           Push-Ups Panel
         PushUpsPanel pushUpsPanel = new PushUpsPanel();
-
+///            Add the variable in container (CardLayout)
         container.add(pushUpsPanel, "Push-Ups");
 
 
+///            Panel for Buttons
         JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(1, 4, 45, 0));
+        panel.setBorder(BorderFactory.createEmptyBorder(90, 30, 0, 30)); //A little change by Buttons.
 
-        panel.setLayout(new GridLayout(1, 4,45,0));
 
-        panel.setBorder(BorderFactory.createEmptyBorder(90,30,0,30));
-                        ///A little change by Buttons.
-
+///             Panel for Tabel
         JPanel secondPanel = new JPanel();
-        secondPanel.setLayout(new GridLayout(1,1));
+        secondPanel.setLayout(new GridLayout(1, 1));
 
 //----------------------------------------------------------------------------------
 
-
-
-
-        String [] dataUps_CalloriesArr = {
+////            String [] dataUps_CalloriesArr  That is just an array for JTable.
+        String[] dataUps_CalloriesArr = {
                 "Day:",
                 "Push-Ups",
                 "Pull-Ups",
                 "Running",
                 "Calories"
-        };    //// String [] dataUps_CalloriesArr  That is just an array for JTable.
+        };
 
 
-        Object [][] data  = {
+        Object[][] data = {
                 {"          MONDAY", 20, 12, 2000, 3000},
                 {"          TUESDAY", 25, 28, 1500, 4500},
                 {"          WEDNESDAY", 30, 10, 3500, 5000},
@@ -51,66 +50,76 @@ public class Main {
                 {"          SATURDAY", 75, 45, 3800, 2300},
                 {"          SUNDAY", 30, 15, 1800, 3500}
         }; //// That is also an array for JTable.
-            ///And of cource i have added days for beauty
+        ///And of cource i have added days for beauty
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                        ////Nothing much, just a simple buttons.
 
-
+///             Buttons and ActionListener
         JButton pushupsButton = new JButton("Push-Ups");
         pushupsButton.addActionListener(event -> {
             cardLayout.show(container, "Push-Ups");
-
         });
 
         JButton pullupsButton = new JButton("Pull-Ups");
-        JButton runningButton = new JButton("Running");
-        JButton calloriesButton = new JButton("Calories");
+        pullupsButton.addActionListener(event -> {
 
+        });
+
+        JButton runningButton = new JButton("Running");
+        runningButton.addActionListener(event -> {
+
+        });
+
+        JButton calloriesButton = new JButton("Calories");
+        calloriesButton.addActionListener(event -> {
+        });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+///                 Tracker Table
+        JTable trakerTabel = new JTable(data, dataUps_CalloriesArr) { ///Create an Table and adding arrays.
 
-        JTable trakerTabel = new JTable(data, dataUps_CalloriesArr ){ ///Create an Table and adding arrays.
-
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            return false;
-             }   ///That is an another thing to cannot change anything in Table
+            /// @Override for bannig
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }   ///That is an another thing to cannot change anything in Table
         };
 
-        JScrollPane scrollPane = new JScrollPane(trakerTabel);       ///And creating a Empty Border.
-        scrollPane.setBorder(BorderFactory.createEmptyBorder(350,50,0,50));
+///             And creating an Empty Border.
+        JScrollPane scrollPane = new JScrollPane(trakerTabel);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder(350, 50, 0, 50));
 
-        window.setLayout(new BorderLayout());
+
+///          BorderLayout and adding every buttons variable
+
         panel.add(pushupsButton);
         panel.add(pullupsButton);
         panel.add(calloriesButton);
         panel.add(runningButton);
         secondPanel.add(scrollPane);
-//------------------------------------------------------------------------------------
 
+//--------------------------------------------------------------------------------------
+
+///          Panel for adding button´s panel and table´s panel
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.add(panel, BorderLayout.NORTH);
         mainPanel.add(secondPanel, BorderLayout.CENTER);
+
 //--------------------------------------------------------------------------------------
 
+///           Adding mainPanel in container
         container.add(mainPanel, "Main");
         container.add(pushUpsPanel, "Push-Ups");
+
 //--------------------------------------------------------------------------------------
 
+///           Finally, adding container in JFrame "window". And show container by "cardLayout"
         window.add(container);
-
         cardLayout.show(container, "Main");
 
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
+        new PullUpsPanel();
         window.setVisible(true);
-
-
-        }
-
+    }
 }

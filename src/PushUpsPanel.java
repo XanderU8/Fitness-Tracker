@@ -11,9 +11,9 @@ public class PushUpsPanel extends JPanel {
 
 
     public PushUpsPanel() {
+        setLayout(new BorderLayout());
 
-        JFrame secondPushUpsWindow = new JFrame();
-        secondPushUpsWindow.setSize(1000,800);
+
 
 
         JPanel panelForPushUpsTitle = new JPanel(new BorderLayout());
@@ -41,7 +41,6 @@ public class PushUpsPanel extends JPanel {
         JButton showAveragePushUpsInfo = new JButton("Show average Push-Ups training"); ///Bonus button)))
 
         JButton exitButton = new JButton("Back>");
-//        exitButton.setPreferredSize(new Dimension(80,30));
         exitButtonPanel.add(exitButton);
 
         panelForPushUpsTitle.add(exitButtonPanel, BorderLayout.WEST);
@@ -60,11 +59,11 @@ public class PushUpsPanel extends JPanel {
         panelForButtons.add(showAveragePushUpsInfo);
 
 
-        secondPushUpsWindow.add(panelForPushUpsTitle, BorderLayout.NORTH);
-        secondPushUpsWindow.add(panelForButtons, BorderLayout.CENTER);
+        add(panelForPushUpsTitle, BorderLayout.NORTH);
+        add(panelForButtons, BorderLayout.CENTER);
 
 
-        secondPushUpsWindow.setVisible(true);
+
 
     }
 }

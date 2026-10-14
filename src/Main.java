@@ -6,8 +6,20 @@ public class Main {
 
         JFrame window = new JFrame("Menu");
         window.setSize(1000,800);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    ///       CardLayout
+        CardLayout cardLayout = new CardLayout();
+        JPanel container = new JPanel(cardLayout);
+
+///           Push-Ups Panel
+        PushUpsPanel pushUpsPanel = new PushUpsPanel();
+
+        container.add(pushUpsPanel, "Push-Ups");
+
 
         JPanel panel = new JPanel();
+
         panel.setLayout(new GridLayout(1, 4,45,0));
 
         panel.setBorder(BorderFactory.createEmptyBorder(90,30,0,30));
@@ -17,6 +29,9 @@ public class Main {
         secondPanel.setLayout(new GridLayout(1,1));
 
 //----------------------------------------------------------------------------------
+
+
+
 
         String [] dataUps_CalloriesArr = {
                 "Day:",
@@ -38,14 +53,22 @@ public class Main {
         }; //// That is also an array for JTable.
             ///And of cource i have added days for beauty
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        ////Nothing much, just a simple buttons.
+
 
         JButton pushupsButton = new JButton("Push-Ups");
+        pushupsButton.addActionListener(event -> {
+            cardLayout.show(container, "Push-Ups");
+
+        });
+
         JButton pullupsButton = new JButton("Pull-Ups");
         JButton runningButton = new JButton("Running");
         JButton calloriesButton = new JButton("Calories");
-                    ////Nothing much, just a simple buttons.
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
         JTable trakerTabel = new JTable(data, dataUps_CalloriesArr ){ ///Create an Table and adding arrays.
@@ -59,41 +82,35 @@ public class Main {
         JScrollPane scrollPane = new JScrollPane(trakerTabel);       ///And creating a Empty Border.
         scrollPane.setBorder(BorderFactory.createEmptyBorder(350,50,0,50));
 
-
         window.setLayout(new BorderLayout());
         panel.add(pushupsButton);
         panel.add(pullupsButton);
         panel.add(calloriesButton);
         panel.add(runningButton);
         secondPanel.add(scrollPane);
+//------------------------------------------------------------------------------------
 
-        window.add(panel, BorderLayout.NORTH);
-        window.add(secondPanel, BorderLayout.CENTER);
+        JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel.add(panel, BorderLayout.NORTH);
+        mainPanel.add(secondPanel, BorderLayout.CENTER);
+//--------------------------------------------------------------------------------------
+
+        container.add(mainPanel, "Main");
+        container.add(pushUpsPanel, "Push-Ups");
+//--------------------------------------------------------------------------------------
+
+        window.add(container);
+
+        cardLayout.show(container, "Main");
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    ///The CardBoard creating
-
-//        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//
-//        CardLayout cardLayout = new CardLayout();
-//
-//        JPanel panelForCardLayout = new JPanel(cardLayout);
-//
-//        DashBoardPanel dashBoardPanel = new DashBoardPanel(cardLayout, panelForCardLayout);
-//
-//        PushUpsPanel pushUpsPanel = new PushUpsPanel(cardLayout, panelForCardLayout);
-//
-//        panelForCardLayout.add(dashBoardPanel, "dashboard");
-//        panelForCardLayout.add(pushUpsPanel, "push-ups");
-//
-//        window.add((panelForCardLayout));
-//
-//        cardLayout.show(panelForCardLayout, "dashboard");
 
 
-//        window.setVisible(true);
+        window.setVisible(true);
 
-        new PushUpsPanel();
 
         }
+
 }

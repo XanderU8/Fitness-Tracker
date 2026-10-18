@@ -8,19 +8,29 @@ public class Main {
         window.setSize(1000, 800);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ///       CardLayout
+///              CardLayout
         CardLayout cardLayout = new CardLayout();
         JPanel container = new JPanel(cardLayout);
 
-
 ///           Push-Ups Panel
         PushUpsPanel pushUpsPanel = new PushUpsPanel(cardLayout,container);
-///            Add the variable in container (CardLayout)
         container.add(pushUpsPanel, "Push-Ups");
 
 ///           PullUpsPanel
         PullUpsPanel pullUpsPanel = new PullUpsPanel(cardLayout,container);
         container.add(pullUpsPanel, "Pull-Ups");
+
+        AddPushUps addPushUps = new AddPushUps(cardLayout,container);
+        container.add(addPushUps, "Add Push-Ups");
+
+///           CaloriesPanel
+        CaloriesPanel caloriesPanel = new CaloriesPanel(cardLayout, container);
+        container.add(caloriesPanel, "Calories");
+
+///           RunningPanel
+        RunningPanel runningPanel = new RunningPanel(cardLayout, container);
+        container.add(runningPanel, "Running");
+
 
 ///            Panel for Buttons
         JPanel panel = new JPanel();
@@ -68,13 +78,16 @@ public class Main {
             cardLayout.show(container, "Pull-Ups");
         });
 
-        JButton runningButton = new JButton("Running");
-        runningButton.addActionListener(event -> {
+        JButton calloriesButton = new JButton("Calories");
+        calloriesButton.addActionListener(event -> {
+            cardLayout.show(container, "Calories");
 
         });
 
-        JButton calloriesButton = new JButton("Calories");
-        calloriesButton.addActionListener(event -> {
+            JButton runningButton = new JButton("Running");
+            runningButton.addActionListener(event -> {
+                cardLayout.show(container, "Running");
+
         });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -95,7 +108,6 @@ public class Main {
 
 
 ///          BorderLayout and adding every buttons variable
-
         panel.add(pushupsButton);
         panel.add(pullupsButton);
         panel.add(calloriesButton);
@@ -110,11 +122,8 @@ public class Main {
         mainPanel.add(secondPanel, BorderLayout.CENTER);
 
 //--------------------------------------------------------------------------------------
-
 ///           Adding mainPanel in container
         container.add(mainPanel, "Main");
-
-
 //--------------------------------------------------------------------------------------
 
 ///           Finally, adding container in JFrame "window". And show container by "cardLayout"
@@ -123,7 +132,7 @@ public class Main {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        new AddPushUps();
+
 
         window.setVisible(true);
     }

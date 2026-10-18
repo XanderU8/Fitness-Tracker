@@ -8,7 +8,6 @@ import javax.swing.table.DefaultTableModel.*; ///using a new import class! "Defa
 public class PushUpsPanel extends JPanel {
 
 
-
 ///         Add public
     public PushUpsPanel(CardLayout cardLayout, JPanel container) {
 
@@ -28,6 +27,10 @@ public class PushUpsPanel extends JPanel {
 
 ///         Push-Ups Buttons: Add, remove, show and average buttons
         JButton addPushUpsButton = new JButton("Add Push-Ups");
+        addPushUpsButton.addActionListener(event -> {
+            cardLayout.show(container, "Add Push-Ups");
+        });
+
         JButton removePushUpsButton = new JButton("Remove Push-Ups");
         JButton showPushUpsInfo = new JButton("Show Push-Ups Information");
         JButton showAveragePushUpsInfo = new JButton("Show average Push-Ups training"); ///Bonus button)))
@@ -49,7 +52,6 @@ public class PushUpsPanel extends JPanel {
         JPanel panelForButtons = new JPanel(); ///A new Panel for Buttons.
         panelForButtons.setLayout(new GridLayout(4,1,0,50));
         panelForButtons.setBorder(BorderFactory.createEmptyBorder(90,260,90,260));
-
 
 ///         Adding variabels in panel for buttons
         panelForButtons.add(addPushUpsButton);

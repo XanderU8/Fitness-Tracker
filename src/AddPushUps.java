@@ -8,29 +8,33 @@ import java.awt.*;
 
         public AddPushUps(CardLayout cardLayout, JPanel container){
 
+                setLayout(new BorderLayout());
 
-
-
-
-        JPanel panelForTitle = new JPanel(new BorderLayout());
+        JPanel panelForTitle = new JPanel();
+        panelForTitle.setLayout(new GridLayout(1,1,20,20));
         panelForTitle.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
+
 
         JPanel panelForJCombo = new JPanel();
         panelForJCombo.setLayout(new GridLayout(2,1,30,0));
         panelForJCombo.setBorder(BorderFactory.createEmptyBorder(350,120,100,120));
 
+
         JPanel panelForExit = new JPanel();
+        panelForExit.setLayout(new GridLayout(1,1));
+        panelForExit.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         panelForExit.setLayout(new FlowLayout(FlowLayout.LEFT));
 
 
-        JPanel panelForComfirmButton = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel panelForComfirmButton = new JPanel();
+        panelForComfirmButton.setLayout(new GridLayout(1,1 ));
         panelForComfirmButton.setBorder(BorderFactory.createEmptyBorder(25,160,50,160));
 
 
         JLabel tittleAddPushUps = new JLabel("Add PUSH-Ups Menu");
+        tittleAddPushUps.setHorizontalAlignment(SwingConstants.CENTER);
         tittleAddPushUps.setFont(new Font("Arial", Font.BOLD,45));
 
-//        JLabel dayQuestionLabel = new JLabel("What Day would you like to choose? ");
 
 
         JComboBox<String> days = new JComboBox<>();
@@ -62,17 +66,17 @@ import java.awt.*;
         exitButton.addActionListener(event -> {
                 cardLayout.show(container, "Push-Ups");
         });
-
+                panelForExit.add(exitButton);
 
         panelForTitle.add(panelForExit, BorderLayout.WEST);
         panelForTitle.add(tittleAddPushUps, BorderLayout.CENTER);
 
-//        panelForJCombo.add(dayQuestionLabel, BorderLayout.NORTH);
-        panelForJCombo.add(days, BorderLayout.CENTER);
 
 
-        panelForExit.add(exitButton);
 
+
+
+         panelForJCombo.add(days, BorderLayout.CENTER);
 
          add(panelForTitle, BorderLayout.NORTH);
          add(panelForJCombo, BorderLayout.CENTER);

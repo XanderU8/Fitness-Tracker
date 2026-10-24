@@ -31,6 +31,8 @@ public class Main {
         RunningPanel runningPanel = new RunningPanel(cardLayout, container);
         container.add(runningPanel, "Running");
 
+        RemovePushUps removePushUps = new RemovePushUps(cardLayout, container);
+        container.add(removePushUps, "Remove Push-Ups");
 
 ///            Panel for Buttons
         JPanel panel = new JPanel();

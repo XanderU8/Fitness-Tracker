@@ -43,7 +43,9 @@ public class PullUpsPanel extends JPanel{
         });
 
         JButton showPullUpsInfo = new JButton("Show Pull-Ups Information");
-
+        showPullUpsInfo.addActionListener(event ->{
+                cardLayout.show(container, "Show Pull-Ups Information");
+        });
 
         JButton showPullUpsAverage = new JButton("Show average");
 

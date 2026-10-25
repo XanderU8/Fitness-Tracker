@@ -42,6 +42,9 @@ public class Main {
         RemovePullUps removePullUps = new RemovePullUps(cardLayout, container);
         container.add(removePullUps, "Remove Pull-Ups");
 
+        ShowPullUpsInformation showPullUpsInformation = new ShowPullUpsInformation(cardLayout, container);
+        container.add(showPullUpsInformation,"Show Pull-Ups Information");
+
 ///            Panel for Buttons
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 4, 45, 0));

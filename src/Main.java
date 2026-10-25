@@ -27,7 +27,6 @@ public class Main {
         CaloriesPanel caloriesPanel = new CaloriesPanel(cardLayout, container);
         container.add(caloriesPanel, "Calories");
 
-///           RunningPanel
         RunningPanel runningPanel = new RunningPanel(cardLayout, container);
         container.add(runningPanel, "Running");
 
@@ -36,6 +35,9 @@ public class Main {
 
         ShowPushUpsInformation showPushUpsInformation = new ShowPushUpsInformation(cardLayout, container);
         container.add(showPushUpsInformation, "Show Push-Ups Information");
+
+        AddPullUps addPullUps = new AddPullUps(cardLayout, container);
+        container.add(addPullUps, "Add Pull-Ups");
 
 ///            Panel for Buttons
         JPanel panel = new JPanel();

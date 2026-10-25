@@ -32,7 +32,9 @@ public class PullUpsPanel extends JPanel{
 
 ///             Create Pull-Ups Buttons. And add Pull-Ups variabels in panel
         JButton addPullUpsButton = new JButton("Add Pull-Ups");
-
+        addPullUpsButton.addActionListener(event ->{
+                cardLayout.show(container, "Add Pull-Ups");
+        });
 
 
         JButton removePullUpsButton = new JButton("Remove Pull-Ups");

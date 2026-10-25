@@ -38,7 +38,9 @@ public class PullUpsPanel extends JPanel{
 
 
         JButton removePullUpsButton = new JButton("Remove Pull-Ups");
-
+        removePullUpsButton.addActionListener(event ->{
+                cardLayout.show(container,"Remove Pull-Ups");
+        });
 
         JButton showPullUpsInfo = new JButton("Show Pull-Ups Information");
 

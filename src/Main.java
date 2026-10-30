@@ -54,6 +54,8 @@ public class Main {
         ShowCaloriesInfo showCaloriesInfo = new ShowCaloriesInfo(cardLayout, container);
         container.add(showCaloriesInfo, "Show calories information");
 
+        AverageCalories averageCalories = new AverageCalories(cardLayout,container);
+        container.add(averageCalories, "Average calories");
 ///            Panel for Buttons
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 4, 45, 0));

@@ -46,6 +46,9 @@ import java.awt.*;
         });
 
         JButton averageCaloriesButton = new JButton("Show average calories");
+        averageCaloriesButton.addActionListener(event ->{
+                cardLayout.show(container, "Average calories");
+        });
 
         JButton exitButton = new JButton("Back>");
         exitButton.addActionListener(event -> {

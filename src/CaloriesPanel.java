@@ -36,6 +36,9 @@ import java.awt.*;
         });
 
         JButton removeCaloriesButton = new JButton("Remove calories");
+        removeCaloriesButton.addActionListener(event -> {
+                cardLayout.show(container, "Remove calories");
+        });
 
         JButton showCaloriesButton = new JButton("Show calories");
 

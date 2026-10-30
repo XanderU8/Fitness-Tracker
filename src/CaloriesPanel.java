@@ -31,6 +31,9 @@ import java.awt.*;
 
 
         JButton addCaloriesButton = new JButton("Add calories");
+        addCaloriesButton.addActionListener(event ->{
+                cardLayout.show(container, "Add calories");
+        });
 
         JButton removeCaloriesButton = new JButton("Remove calories");
 

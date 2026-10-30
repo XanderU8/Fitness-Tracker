@@ -45,6 +45,9 @@ public class Main {
         ShowPullUpsInformation showPullUpsInformation = new ShowPullUpsInformation(cardLayout, container);
         container.add(showPullUpsInformation,"Show Pull-Ups Information");
 
+        AddCalories addCalories = new AddCalories(cardLayout, container);
+        container.add(addCalories, "Add calories");
+
 ///            Panel for Buttons
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 4, 45, 0));

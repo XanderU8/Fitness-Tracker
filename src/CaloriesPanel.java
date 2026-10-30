@@ -41,6 +41,9 @@ import java.awt.*;
         });
 
         JButton showCaloriesButton = new JButton("Show calories");
+        showCaloriesButton.addActionListener(event ->{
+                cardLayout.show(container, "Show calories information");
+        });
 
         JButton averageCaloriesButton = new JButton("Show average calories");
 

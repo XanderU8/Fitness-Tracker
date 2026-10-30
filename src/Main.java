@@ -51,6 +51,9 @@ public class Main {
         RemoveCalories removeCalories = new RemoveCalories(cardLayout, container);
         container.add(removeCalories, "Remove calories");
 
+        ShowCaloriesInfo showCaloriesInfo = new ShowCaloriesInfo(cardLayout, container);
+        container.add(showCaloriesInfo, "Show calories information");
+
 ///            Panel for Buttons
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 4, 45, 0));

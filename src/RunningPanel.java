@@ -24,6 +24,9 @@ public RunningPanel(CardLayout cardLayout, JPanel container) {
     });
 
     JButton removeSteps = new JButton("Remove Steps");
+    removeSteps.addActionListener(event ->{
+        cardLayout.show(container,"Remove steps");
+    });
 
     JButton showSteps = new JButton("Show Steps");
 

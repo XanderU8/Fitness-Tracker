@@ -60,6 +60,9 @@ public class Main {
         AddSteps addSteps = new AddSteps(cardLayout, container);
         container.add(addSteps, "Add steps");
 
+        RemoveSteps removeSteps = new RemoveSteps(cardLayout, container);
+        container.add(removeSteps,"Remove steps");
+
 ///            Panel for Buttons
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 4, 45, 0));

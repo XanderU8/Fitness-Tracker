@@ -29,6 +29,9 @@ public RunningPanel(CardLayout cardLayout, JPanel container) {
     });
 
     JButton showSteps = new JButton("Show Steps");
+    showSteps.addActionListener(event ->{
+        cardLayout.show(container,"Show steps");
+    });
 
     JButton showAverageSteps = new JButton("Average Steps");
 

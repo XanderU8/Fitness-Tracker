@@ -63,6 +63,9 @@ public class Main {
         RemoveSteps removeSteps = new RemoveSteps(cardLayout, container);
         container.add(removeSteps,"Remove steps");
 
+        ShowSteps showSteps = new ShowSteps(cardLayout, container);
+        container.add(showSteps,"Show steps");
+
 ///            Panel for Buttons
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 4, 45, 0));

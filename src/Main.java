@@ -56,6 +56,10 @@ public class Main {
 
         AverageCalories averageCalories = new AverageCalories(cardLayout,container);
         container.add(averageCalories, "Average calories");
+
+        AddSteps addSteps = new AddSteps(cardLayout, container);
+        container.add(addSteps, "Add steps");
+
 ///            Panel for Buttons
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 4, 45, 0));

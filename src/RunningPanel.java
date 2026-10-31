@@ -4,23 +4,24 @@ import java.awt.*;
 public class RunningPanel extends JPanel {
 public RunningPanel(CardLayout cardLayout, JPanel container) {
 
+    setLayout(new BorderLayout());
 
-
-
-    JPanel tittlePanel = new JPanel();
+    JPanel tittlePanel = new JPanel(new BorderLayout());
     tittlePanel.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
-    tittlePanel.setLayout(new GridLayout(1,1));
-
 
     JPanel exitButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
     exitButtonPanel.setLayout(new GridLayout(1,1));
+    exitButtonPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,350));
 
-    JLabel tittleCalories = new JLabel("CALORIES Menu");
+    JLabel tittleCalories = new JLabel("STEPS Menu");
     tittleCalories.setHorizontalAlignment(SwingConstants.CENTER);
     tittleCalories.setFont(new Font("Arial" , Font.BOLD, 30));
-    tittleCalories.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
+    tittleCalories.setBorder(BorderFactory.createEmptyBorder(25,15,15,15));
 
     JButton addStepsButton = new JButton("Add Steps");
+    addStepsButton.addActionListener(event ->{
+        cardLayout.show(container,"Add steps");
+    });
 
     JButton removeSteps = new JButton("Remove Steps");
 

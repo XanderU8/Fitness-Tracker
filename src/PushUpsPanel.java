@@ -9,7 +9,7 @@ public class PushUpsPanel extends JPanel {
 
 
 ///         Add public
-    public PushUpsPanel(CardLayout cardLayout, JPanel container) {
+        public PushUpsPanel(CardLayout cardLayout, JPanel container) {
 
         setLayout(new BorderLayout());
 
@@ -32,7 +32,17 @@ public class PushUpsPanel extends JPanel {
         });
 
         JButton removePushUpsButton = new JButton("Remove Push-Ups");
+        removePushUpsButton.addActionListener(event -> {
+            cardLayout.show(container, "Remove Push-Ups");
+
+        });
+
+
+
         JButton showPushUpsInfo = new JButton("Show Push-Ups Information");
+        showPushUpsInfo.addActionListener(event ->{
+                cardLayout.show(container, "Show Push-Ups Information");
+        });
         JButton showAveragePushUpsInfo = new JButton("Show average Push-Ups training"); ///Bonus button)))
 
 ///         Exit button.           Adding "Exit" button in "exitButtonPanel"

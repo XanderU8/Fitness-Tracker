@@ -10,8 +10,7 @@ import java.awt.*;
 
                 setLayout(new BorderLayout());
 
-        JPanel panelForTitle = new JPanel();
-        panelForTitle.setLayout(new GridLayout(1,1,20,20));
+        JPanel panelForTitle = new JPanel(new BorderLayout());
         panelForTitle.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
 
 
@@ -48,7 +47,9 @@ import java.awt.*;
         days.addItem("Sunday");
 
 
+
         JButton confirmButton = new JButton("Confirm");
+        confirmButton.setBorder(BorderFactory.createEmptyBorder(45,45,45,45));
         confirmButton.addActionListener(event -> {
 
                 String questionText = JOptionPane.showInputDialog("How many Push-Ups?");
@@ -76,7 +77,7 @@ import java.awt.*;
 
 
 
-         panelForJCombo.add(days, BorderLayout.CENTER);
+         panelForJCombo.add(days);
 
          add(panelForTitle, BorderLayout.NORTH);
          add(panelForJCombo, BorderLayout.CENTER);

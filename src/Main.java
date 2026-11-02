@@ -146,6 +146,7 @@ public class Main {
         panel.add(pullupsButton);
         panel.add(calloriesButton);
         panel.add(runningButton);
+
         secondPanel.add(scrollPane);
 
 //--------------------------------------------------------------------------------------

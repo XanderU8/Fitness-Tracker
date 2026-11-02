@@ -14,50 +14,56 @@ public ShowPullUpsInformation(CardLayout cardLayout, JPanel container){
     exitButtonPanel.setLayout(new GridLayout(1,1));
     exitButtonPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
-    JPanel comboBoxPanel = new JPanel();
-    comboBoxPanel.setLayout(new GridLayout(1,1));
-    comboBoxPanel.setBorder(BorderFactory.createEmptyBorder(200,200,200,200));
-
-    JPanel confirmButtonPanel = new JPanel();
-    confirmButtonPanel.setLayout(new GridLayout(1,1));
-    confirmButtonPanel.setBorder(BorderFactory.createEmptyBorder(45,45,45,45));
+    JPanel tablePanel = new JPanel();
+    tablePanel.setLayout(new GridLayout(1,1));
+    tablePanel.setBorder(BorderFactory.createEmptyBorder(50, 100, 450,100));
 
     JLabel showPullUpsText = new JLabel("SHOW Pull-Ups");
     showPullUpsText.setHorizontalAlignment(SwingConstants.CENTER);
     showPullUpsText.setFont(new Font("Arial", Font.BOLD, 50));
 
-    JComboBox<String> days = new JComboBox<>();
-    days.addItem("Choose a day to know information");
-    days.addItem("Monday");
-    days.addItem("Tuesday");
-    days.addItem("Wednesday");
-    days.addItem("Thursday");
-    days.addItem("Friday");
-    days.addItem("Saturday");
-    days.addItem("Sunday");
 
     JButton exitButton = new JButton("Back>");
     exitButton.addActionListener(event ->{
         cardLayout.show(container, "Pull-Ups");
     });
 
-    JButton confirmButton = new JButton("CONFIRM");
-    confirmButton.addActionListener(event ->{
-        String question = JOptionPane.showInputDialog("That´s Info");
-    });
+    String [] data = {
+            "Days:",
+            "Pull-Ups"
+    };
+
+    Object [] [] objects =  {
+            {"Monday", 250},
+            {"Tuesday", 12},
+            {"Wednesday", 15},
+            {"Thursday", 9},
+            {"Friday", 23 },
+            {"Saturday", 54},
+            {"Sunday", 35}
+
+    };
+
+
+    JTable infoTable = new JTable(objects, data);
+
+    JScrollPane scrollPane = new JScrollPane(infoTable);
+
+    tablePanel.add(scrollPane);
+
+
 
     exitButtonPanel.add(exitButton);
 
     tittlePanel.add(exitButtonPanel, BorderLayout.WEST);
     tittlePanel.add(showPullUpsText, BorderLayout.CENTER);
 
-    comboBoxPanel.add(days);
 
-    confirmButtonPanel.add(confirmButton);
+
+
 
     add(tittlePanel, BorderLayout.NORTH);
-    add(comboBoxPanel, BorderLayout.CENTER);
-    add(confirmButtonPanel, BorderLayout.SOUTH);
+    add(tablePanel, BorderLayout.CENTER);
 
     setVisible(true);
 

@@ -15,51 +15,47 @@ public class ShowSteps extends JPanel {
         exitButtonPanel.setLayout(new GridLayout(1, 1));
         exitButtonPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        JPanel jComboBoxPanel = new JPanel();
-        jComboBoxPanel.setLayout(new GridLayout(1, 1));
-        jComboBoxPanel.setBorder(BorderFactory.createEmptyBorder(200, 200, 200, 200));
-
-        JPanel confirmButtonPanel = new JPanel();
-        confirmButtonPanel.setLayout(new GridLayout(1, 1));
-        confirmButtonPanel.setBorder(BorderFactory.createEmptyBorder(25, 160, 50, 160));
-
+        JPanel tablePanel = new JPanel();
+        tablePanel.setLayout(new GridLayout(1,1));
+        tablePanel.setBorder(BorderFactory.createEmptyBorder(50,100,450,100));
 
         JLabel tittle = new JLabel("SHOW steps");
         tittle.setHorizontalAlignment(SwingConstants.CENTER);
         tittle.setFont(new Font("Arial", Font.BOLD, 50));
 
-        JComboBox<String> days = new JComboBox<>();
-        days.addItem("Choose a day to know information");
-        days.addItem("Monday");
-        days.addItem("Tuesday");
-        days.addItem("Wednesday");
-        days.addItem("Thursday");
-        days.addItem("Friday");
-        days.addItem("Saturday");
-        days.addItem("Sunday");
-
-
-        JButton confirmButton = new JButton("CONFIRM");
-        confirmButton.addActionListener(event -> {
-            String question = JOptionPane.showInputDialog("So many steps have done");
-        });
-
         JButton exitButton = new JButton("Back>");
         exitButton.addActionListener(event -> {
             cardLayout.show(container, "Running");
         });
+
+        String [] data = {
+          "Days:",
+          "Steps"
+        };
+
+        Object [] [] objects = {
+                {"Monday", 25000},
+                {"Tuesday", 12000},
+                {"Wednesday", 15600},
+                {"Thursday", 9200},
+                {"Friday", 25300},
+                {"Saturday", 5400},
+                {"Sunday", 3502}
+        };
+
+        JTable table = new JTable(objects, data);
+
+        JScrollPane scrollPane = new JScrollPane(table);
+
+        tablePanel.add(scrollPane);
+
         exitButtonPanel.add(exitButton);
 
         tittlePanel.add(exitButtonPanel, BorderLayout.WEST);
         tittlePanel.add(tittle, BorderLayout.CENTER);
 
-        jComboBoxPanel.add(days);
-        confirmButtonPanel.add(confirmButton);
-
-
         add(tittlePanel, BorderLayout.NORTH);
-        add(jComboBoxPanel, BorderLayout.CENTER);
-        add(confirmButtonPanel, BorderLayout.SOUTH);
+        add(tablePanel, BorderLayout.CENTER);
 
         setVisible(true);
     }

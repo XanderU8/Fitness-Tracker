@@ -5,6 +5,20 @@ import java.awt.*;
 
         public class AddPushUps extends JPanel {
 
+                public int [] pushUps = new int[7];
+
+                public void addPushUps_days(){
+
+
+
+
+
+
+        }
+
+
+
+
 
         public AddPushUps(CardLayout cardLayout, JPanel container){
 
@@ -47,7 +61,6 @@ import java.awt.*;
         days.addItem("Sunday");
 
 
-
         JButton confirmButton = new JButton("Confirm");
         confirmButton.setBorder(BorderFactory.createEmptyBorder(45,45,45,45));
         confirmButton.addActionListener(event -> {
@@ -71,11 +84,6 @@ import java.awt.*;
 
         panelForTitle.add(panelForExit, BorderLayout.WEST);
         panelForTitle.add(tittleAddPushUps, BorderLayout.CENTER);
-
-
-
-
-
 
          panelForJCombo.add(days);
 

@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 
-
-
         public class AddPushUps extends JPanel {
 
                 public int [] pushUpsPerWeek = new int[7];
@@ -82,7 +80,7 @@ import java.awt.*;
                                 pushUpsPerWeek[6] += pushUps;
                         }
 
-                        JOptionPane.showMessageDialog(this, "Great!!! You added: " + pushUps + " Push-Ups");
+                        JOptionPane.showMessageDialog(this,"Great!!! You added: " + pushUps + " Push-Ups");
 
                 } catch (NumberFormatException e){
                         JOptionPane.showMessageDialog(this,"Please write Push-Ups amount!");

@@ -1,9 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class ShowPushUpsInformation extends JPanel {
 
-    public ShowPushUpsInformation(CardLayout cardLayout, JPanel container) {
+    public ShowPushUpsInformation(CardLayout cardLayout, JPanel container, int [] pushUpsPerWeek) {
 
         setLayout(new BorderLayout());
 
@@ -35,17 +37,16 @@ public class ShowPushUpsInformation extends JPanel {
         };
 
         Object[][] objects = {
-                {"Monday", 25000},
-                {"Tuesday", 12000},
-                {"Wednesday", 15600},
-                {"Thursday", 9200},
-                {"Friday", 25300},
-                {"Saturday", 5400},
-                {"Sunday", 3502}
+                {"Monday", pushUpsPerWeek[0]},
+                {"Tuesday", pushUpsPerWeek[1]},
+                {"Wednesday", pushUpsPerWeek[2]},
+                {"Thursday", pushUpsPerWeek[3]},
+                {"Friday", pushUpsPerWeek[4]},
+                {"Saturday", pushUpsPerWeek[5]},
+                {"Sunday", pushUpsPerWeek[6]}
         };
 
         JTable trakerTabel = new JTable(objects, columns) {
-
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -53,6 +54,16 @@ public class ShowPushUpsInformation extends JPanel {
         };
 
         trakerTabel.setRowHeight(30);
+
+        addComponentListener(new ComponentAdapter() {
+
+            @Override /// Why do i need to have this method. It isn´t even used!!!
+            public void componentShown(ComponentEvent event) {
+                for (int i = 0; i < pushUpsPerWeek.length; i++) {
+                    trakerTabel.setValueAt(pushUpsPerWeek[i], i, 1);/// Also "1" bedeutet, dass es eine Zeile von Tabel ist.
+                }
+            }
+        });
 
         JScrollPane scrollPane = new JScrollPane(trakerTabel);
 

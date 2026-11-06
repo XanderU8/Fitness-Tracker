@@ -33,7 +33,7 @@ public class Main {
         RemovePushUps removePushUps = new RemovePushUps(cardLayout, container);
         container.add(removePushUps, "Remove Push-Ups");
 
-        ShowPushUpsInformation showPushUpsInformation = new ShowPushUpsInformation(cardLayout, container);
+        ShowPushUpsInformation showPushUpsInformation = new ShowPushUpsInformation(cardLayout, container, addPushUps.pushUpsPerWeek);
         container.add(showPushUpsInformation, "Show Push-Ups Information");
 
         AddPullUps addPullUps = new AddPullUps(cardLayout, container);

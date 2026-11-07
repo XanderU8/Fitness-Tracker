@@ -42,7 +42,7 @@ public class Main {
         RemovePullUps removePullUps = new RemovePullUps(cardLayout, container);
         container.add(removePullUps, "Remove Pull-Ups");
 
-        ShowPullUpsInformation showPullUpsInformation = new ShowPullUpsInformation(cardLayout, container);
+        ShowPullUpsInformation showPullUpsInformation = new ShowPullUpsInformation(cardLayout, container, addPullUps.pullUpsPerWeek);
         container.add(showPullUpsInformation,"Show Pull-Ups Information");
 
         AddCalories addCalories = new AddCalories(cardLayout, container);

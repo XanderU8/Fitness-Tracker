@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AddPullUps extends JPanel {
+
+    public int [] pullUpsPerWeek = new int[7];
+
     public AddPullUps(CardLayout cardLayout, JPanel container) {
 
         setLayout(new BorderLayout());
@@ -28,7 +31,7 @@ public class AddPullUps extends JPanel {
         addPullUpsTittle.setHorizontalAlignment(SwingConstants.CENTER);
 
         JComboBox<String> pullUpsDays = new JComboBox<>();
-        pullUpsDays.addItem("Choose a day to add Pull-Ups");
+        pullUpsDays.addItem("Choose a day...");
         pullUpsDays.addItem("Monday");
         pullUpsDays.addItem("Tuesday");
         pullUpsDays.addItem("Wednesday");
@@ -39,8 +42,46 @@ public class AddPullUps extends JPanel {
 
         JButton confirmButton = new JButton("CONFIRM");
         confirmButton.addActionListener(event -> {
-            String question = JOptionPane.showInputDialog("How many Pull-Ups would you like to add?");
-        });
+
+            String day = (String) pullUpsDays.getSelectedItem();
+
+            if (day.equalsIgnoreCase("Choose a day...")){
+                JOptionPane.showMessageDialog(this,"Please choose a day!");
+                return;
+            }
+
+            String question = JOptionPane.showInputDialog("How many Pull-Ups have you done?");
+
+            try {
+
+                int addPullUps = Integer.parseInt(question);
+
+                if (addPullUps <= 0) {
+                    JOptionPane.showMessageDialog(this, "Please write positive numbers!");
+                    return;
+                }
+                if (day.equalsIgnoreCase("Monday")) {
+                    pullUpsPerWeek[0] += addPullUps;
+                } else if (day.equalsIgnoreCase("Tuesday")) {
+                    pullUpsPerWeek[1] += addPullUps;
+                } else if (day.equalsIgnoreCase("Wednesday")) {
+                    pullUpsPerWeek[2] += addPullUps;
+                } else if (day.equalsIgnoreCase("Thursday")) {
+                    pullUpsPerWeek[3] += addPullUps;
+                } else if (day.equalsIgnoreCase("Friday")) {
+                    pullUpsPerWeek[4] += addPullUps;
+                } else if (day.equalsIgnoreCase("Saturday")) {
+                    pullUpsPerWeek[5] += addPullUps;
+                } else if (day.equalsIgnoreCase("Sunday")) {
+                    pullUpsPerWeek[6] += addPullUps;
+                }
+
+                JOptionPane.showMessageDialog(this, "Great!!! You added: " + addPullUps + " Pull-Ups");
+
+            } catch (NumberFormatException exception){
+                JOptionPane.showMessageDialog(this,"Please write Pull-Ups amount!");
+            }
+            });
 
         JButton exitButton = new JButton("Back>");
         exitButton.addActionListener(event -> {

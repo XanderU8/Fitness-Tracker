@@ -1,9 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
 public class ShowSteps extends JPanel {
 
-    public ShowSteps(CardLayout cardLayout, JPanel container) {
+    public ShowSteps(CardLayout cardLayout, JPanel container, int[] addStepsPerWeek) {
 
         setLayout(new BorderLayout());
 
@@ -16,8 +19,8 @@ public class ShowSteps extends JPanel {
         exitButtonPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JPanel tablePanel = new JPanel();
-        tablePanel.setLayout(new GridLayout(1,1));
-        tablePanel.setBorder(BorderFactory.createEmptyBorder(50,100,450,100));
+        tablePanel.setLayout(new GridLayout(1, 1));
+        tablePanel.setBorder(BorderFactory.createEmptyBorder(50, 100, 450, 100));
 
         JLabel tittle = new JLabel("SHOW steps");
         tittle.setHorizontalAlignment(SwingConstants.CENTER);
@@ -28,22 +31,37 @@ public class ShowSteps extends JPanel {
             cardLayout.show(container, "Running");
         });
 
-        String [] data = {
-          "Days:",
-          "Steps"
+        String[] data = {
+                "Days:",
+                "Steps"
         };
 
-        Object [] [] objects = {
-                {"Monday", 25000},
-                {"Tuesday", 12000},
-                {"Wednesday", 15600},
-                {"Thursday", 9200},
-                {"Friday", 25300},
-                {"Saturday", 5400},
-                {"Sunday", 3502}
+        Object[][] objects = {
+                {"Monday", 0},
+                {"Tuesday", 0},
+                {"Wednesday", 0},
+                {"Thursday", 0},
+                {"Friday", 0},
+                {"Saturday", 0},
+                {"Sunday", 0}
         };
 
-        JTable table = new JTable(objects, data);
+        JTable table = new JTable(objects, data) {
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent event) {
+                for (int i = 0; i < addStepsPerWeek.length; i++) {
+                    table.setValueAt(addStepsPerWeek[i], i, 1);
+                }
+            }
+        });
 
         JScrollPane scrollPane = new JScrollPane(table);
 

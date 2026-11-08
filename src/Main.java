@@ -51,7 +51,7 @@ public class Main {
         RemoveCalories removeCalories = new RemoveCalories(cardLayout, container);
         container.add(removeCalories, "Remove calories");
 
-        ShowCaloriesInfo showCaloriesInfo = new ShowCaloriesInfo(cardLayout, container);
+        ShowCaloriesInfo showCaloriesInfo = new ShowCaloriesInfo(cardLayout, container, addCalories.addCaloriesPerWeek);
         container.add(showCaloriesInfo, "Show calories information");
 
         AverageCalories averageCalories = new AverageCalories(cardLayout,container);

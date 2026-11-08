@@ -1,9 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class ShowCaloriesInfo extends JPanel {
 
-    public ShowCaloriesInfo(CardLayout cardLayout, JPanel container) {
+    public ShowCaloriesInfo(CardLayout cardLayout, JPanel container, int [] addCaloriesPerWeek) {
 
         setLayout(new BorderLayout());
 
@@ -44,7 +46,25 @@ public class ShowCaloriesInfo extends JPanel {
                 {"Sunday", 3502}
         };
 
-        JTable table = new JTable(objects, data);
+        JTable table = new JTable(objects, data){
+
+        @Override
+
+        public boolean isCellEditable(int row, int column){
+            return false;
+        }
+    };
+
+        addComponentListener(new ComponentAdapter() {
+
+            @Override
+            public void componentShown(ComponentEvent evnet){
+
+                for (int i = 0; i<addCaloriesPerWeek.length; i++){
+                    table.setValueAt(addCaloriesPerWeek[i], i, 1);
+                }
+        }
+    });
 
         JScrollPane scrollPane = new JScrollPane(table);
 

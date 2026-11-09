@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class RemovePullUps extends JPanel {
 
-    public RemovePullUps(CardLayout cardLayout, JPanel container){
+    public RemovePullUps(CardLayout cardLayout, JPanel container, int [] pullUpsPerWeek){
 
         setLayout(new BorderLayout());
 
@@ -30,7 +30,7 @@ public class RemovePullUps extends JPanel {
         removePullUpsTittle.setFont(new Font("Arial", Font.BOLD,50));
 
         JComboBox<String> days = new JComboBox<>();
-        days.addItem("Choose a day to remove Pull-Ups");
+        days.addItem("Choose a day...");
         days.addItem("Monday");
         days.addItem("Tuesday");
         days.addItem("Wednesday");
@@ -41,7 +41,45 @@ public class RemovePullUps extends JPanel {
 
         JButton confirmButton = new JButton("CONFIRM");
         confirmButton.addActionListener(event -> {
+
+            String day = days.getSelectedItem().toString();
+
+            if (day.equalsIgnoreCase("Choose a day...")){
+                JOptionPane.showMessageDialog(this,"Please choose a day!");
+                return;
+            }
+
             String question = JOptionPane.showInputDialog("How many Pull-Ups would you like to remove?");
+
+            try {
+                int removePullUps = Integer.parseInt(question);
+
+                if (day.equalsIgnoreCase("Monday")){
+                    pullUpsPerWeek[0] -= removePullUps;
+                }
+                else if (day.equalsIgnoreCase("Tuesday")){
+                    pullUpsPerWeek[1] -= removePullUps;
+                }
+                else if (day.equalsIgnoreCase("Wednesday")){
+                    pullUpsPerWeek[2] -= removePullUps;
+                }
+                else if (day.equalsIgnoreCase("Thursday")){
+                    pullUpsPerWeek[3] -= removePullUps;
+                }
+                else if (day.equalsIgnoreCase("Friday")){
+                    pullUpsPerWeek[4] -= removePullUps;
+                }
+                else if (day.equalsIgnoreCase("Saturday")){
+                    pullUpsPerWeek[5] -= removePullUps;
+                }
+                else if (day.equalsIgnoreCase("Sunday")){
+                    pullUpsPerWeek[6] -= removePullUps;
+                }
+                    JOptionPane.showMessageDialog(this,"Great!!! You removed: " + removePullUps + " Pull-Ups");
+
+            }catch (NumberFormatException exception){
+                JOptionPane.showMessageDialog(this,"Please write Pull-Ups amount!");
+            }
         });
 
         JButton exitButton = new JButton("Back>");

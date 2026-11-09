@@ -60,10 +60,10 @@ public class Main {
         AddSteps addSteps = new AddSteps(cardLayout, container);
         container.add(addSteps, "Add steps");
 
-        RemoveSteps removeSteps = new RemoveSteps(cardLayout, container);
+        RemoveSteps removeSteps = new RemoveSteps(cardLayout, container, addSteps.stepsPerWeek);
         container.add(removeSteps,"Remove steps");
 
-        ShowSteps showSteps = new ShowSteps(cardLayout, container, addSteps.addStepsPerWeek);
+        ShowSteps showSteps = new ShowSteps(cardLayout, container, addSteps.stepsPerWeek);
         container.add(showSteps,"Show steps");
 
 ///            Panel for Buttons

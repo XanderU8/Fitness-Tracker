@@ -30,7 +30,7 @@ public class Main {
         RunningPanel runningPanel = new RunningPanel(cardLayout, container);
         container.add(runningPanel, "Running");
 
-        RemovePushUps removePushUps = new RemovePushUps(cardLayout, container);
+        RemovePushUps removePushUps = new RemovePushUps(cardLayout, container, addPushUps.pushUpsPerWeek);
         container.add(removePushUps, "Remove Push-Ups");
 
         ShowPushUpsInformation showPushUpsInformation = new ShowPushUpsInformation(cardLayout, container, addPushUps.pushUpsPerWeek);

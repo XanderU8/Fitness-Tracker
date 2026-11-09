@@ -4,9 +4,7 @@ import java.awt.*;
 
 public class RemovePushUps extends JPanel {
 
-
-
-    public RemovePushUps(CardLayout cardLayout, JPanel container ){
+    public RemovePushUps(CardLayout cardLayout, JPanel container, int [] pushUpsPerWeek){
 
 
 
@@ -35,7 +33,7 @@ public class RemovePushUps extends JPanel {
 
 
         JComboBox<String> days = new JComboBox<>();
-        days.addItem("Choose a day to remove Push-Ups");
+        days.addItem("Choose a day...");
         days.addItem("Monday");
         days.addItem("Tuesday");
         days.addItem("Wednesday");
@@ -49,10 +47,46 @@ public class RemovePushUps extends JPanel {
         confirmButton.setBorder(BorderFactory.createEmptyBorder(45,45,45,45));
         confirmButton.addActionListener(event -> {
 
-            String question = JOptionPane.showInputDialog("So many Push you have done?\nHow many would you like to remove?");
-                    if (question != null){
-                        int removePushUps = Integer.parseInt(question);
-                    }
+            String day = days.getSelectedItem().toString();
+
+            if (day.equalsIgnoreCase("Choose a day...")){
+                JOptionPane.showMessageDialog(this,"Please choose a day!");
+                return;
+            }
+
+            String question = JOptionPane.showInputDialog("How many Push-Ups would you like to remove?");
+
+            try{
+
+                int removePushUps = Integer.parseInt(question);
+
+                if (day.equalsIgnoreCase("Monday")){
+                    pushUpsPerWeek[0] -= removePushUps;
+                }
+                else if (day.equalsIgnoreCase("Tuesday")){
+                    pushUpsPerWeek[1] -= removePushUps;
+                }
+                else if (day.equalsIgnoreCase("Wednesday")){
+                    pushUpsPerWeek[2] -= removePushUps;
+                }
+                else if (day.equalsIgnoreCase("Thursday")){
+                    pushUpsPerWeek[3] -= removePushUps;
+                }
+                else if (day.equalsIgnoreCase("Friday")){
+                    pushUpsPerWeek[4] -= removePushUps;
+                }
+                else if (day.equalsIgnoreCase("Saturday")){
+                    pushUpsPerWeek[5] -= removePushUps;
+                }
+                else if (day.equalsIgnoreCase("Sunday")){
+                    pushUpsPerWeek[6] -= removePushUps;
+                }
+
+                    JOptionPane.showMessageDialog(this,"Great!!! You removed: " + removePushUps + " Push-Ups");
+
+            }catch (NumberFormatException exception){
+                JOptionPane.showMessageDialog(this,"Please write Push-Ups amount!");
+            }
         });
 
         JButton exitButton = new JButton("Back>");
@@ -74,10 +108,5 @@ public class RemovePushUps extends JPanel {
         add(panelForConfirmButton, BorderLayout.SOUTH);
 
         setVisible(true);
-
-
-
-
     }
-
 }

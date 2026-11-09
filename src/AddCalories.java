@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 public class AddCalories extends JPanel {
 
-    public int[] addCaloriesPerWeek = new int[7];
+    public int[] caloriesPerWeek = new int[7];
 
     public AddCalories(CardLayout cardLayout, JPanel container) {
 
@@ -56,21 +56,21 @@ public class AddCalories extends JPanel {
                 int addCalories = Integer.parseInt(question);
 
                 if (day.equalsIgnoreCase("Monday")) {
-                    addCaloriesPerWeek[0] += addCalories;
+                     caloriesPerWeek[0] += addCalories;
                 } else if (day.equalsIgnoreCase("Tuesday")) {
-                    addCaloriesPerWeek[1] += addCalories;
+                     caloriesPerWeek[1] += addCalories;
                 } else if (day.equalsIgnoreCase("Wednesday")) {
-                    addCaloriesPerWeek[2] += addCalories;
+                     caloriesPerWeek[2] += addCalories;
                 } else if (day.equalsIgnoreCase("Thursday")) {
-                    addCaloriesPerWeek[3] += addCalories;
+                     caloriesPerWeek[3] += addCalories;
                 } else if (day.equalsIgnoreCase("Friday")) {
-                    addCaloriesPerWeek[4] += addCalories;
+                     caloriesPerWeek[4] += addCalories;
                 } else if (day.equalsIgnoreCase("Saturday")) {
-                    addCaloriesPerWeek[5] += addCalories;
+                     caloriesPerWeek[5] += addCalories;
                 } else if (day.equalsIgnoreCase("Sunday")) {
-                    addCaloriesPerWeek[6] += addCalories;
+                     caloriesPerWeek[6] += addCalories;
                 }
-                JOptionPane.showMessageDialog(this, "Great!!! You added: " + addCalories + "calories");
+                JOptionPane.showMessageDialog(this, "Great!!! You added: " + addCalories + " calories");
 
             } catch (NumberFormatException exception) {
                 JOptionPane.showMessageDialog(this, "Please write calories amount!");

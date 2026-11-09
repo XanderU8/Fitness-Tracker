@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class RemoveCalories extends JPanel {
 
-public RemoveCalories(CardLayout cardLayout, JPanel container){
+public RemoveCalories(CardLayout cardLayout, JPanel container, int [] caloriesPerWeek){
 
     setLayout(new BorderLayout());
 
@@ -29,7 +29,7 @@ public RemoveCalories(CardLayout cardLayout, JPanel container){
     addCaloriesTittle.setFont(new Font("Arial", Font.BOLD,50));
 
     JComboBox<String> days = new JComboBox<>();
-    days.addItem("Choose a day to remove calories");
+    days.addItem("Choose a day...");
     days.addItem("Monday");
     days.addItem("Tuesday");
     days.addItem("Wednesday");
@@ -41,7 +41,45 @@ public RemoveCalories(CardLayout cardLayout, JPanel container){
 
     JButton confirmButton = new JButton("CONFIRM");
     confirmButton.addActionListener(event ->{
+
+        String day = days.getSelectedItem().toString();
+
+        if (day.equalsIgnoreCase("Choose a day...")){
+            JOptionPane.showMessageDialog(this,"Please choose a day!");
+            return;
+        }
+
         String question = JOptionPane.showInputDialog("How many calories would you like to remove?");
+
+        try {
+            int removeCalories = Integer.parseInt(question);
+
+            if (day.equalsIgnoreCase("Monday")){
+                 caloriesPerWeek[0] -= removeCalories;
+            }
+            else if (day.equalsIgnoreCase("Tuesday")){
+                 caloriesPerWeek[1] -= removeCalories;
+            }
+            else if (day.equalsIgnoreCase("Wednesday")){
+                 caloriesPerWeek[2] -= removeCalories;
+            }
+            else if (day.equalsIgnoreCase("Thursday")){
+                 caloriesPerWeek[3] -= removeCalories;
+            }
+            else if (day.equalsIgnoreCase("Friday")){
+                 caloriesPerWeek[4] -= removeCalories;
+            }
+            else if (day.equalsIgnoreCase("Saturday")){
+                 caloriesPerWeek[5] -= removeCalories;
+            }
+            else if (day.equalsIgnoreCase("Sunday")){
+                 caloriesPerWeek[6] -= removeCalories;
+            }
+            JOptionPane.showMessageDialog(this,"Great!!! You removed: " + removeCalories + " calories");
+
+        }catch (NumberFormatException exception){
+            JOptionPane.showMessageDialog(this,"Please write calories amount!");
+        }
     });
 
     JButton exitButton = new JButton("Back>");
@@ -56,7 +94,6 @@ public RemoveCalories(CardLayout cardLayout, JPanel container){
 
     jComboBoxPanel.add(days);
     confirmButtonPanel.add(confirmButton);
-
 
     add(tittlePanel, BorderLayout.NORTH);
     add(jComboBoxPanel, BorderLayout.CENTER);

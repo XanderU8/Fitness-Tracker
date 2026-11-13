@@ -43,7 +43,6 @@ public class PushUpsPanel extends JPanel {
         showPushUpsInfo.addActionListener(event ->{
                 cardLayout.show(container, "Show Push-Ups Information");
         });
-        JButton showAveragePushUpsInfo = new JButton("Show average Push-Ups training"); ///Bonus button)))
 
 ///         Exit button.           Adding "Exit" button in "exitButtonPanel"
         JButton exitButton = new JButton("Back>");
@@ -60,14 +59,14 @@ public class PushUpsPanel extends JPanel {
 
 ///         Panel for buttons
         JPanel panelForButtons = new JPanel(); ///A new Panel for Buttons.
-        panelForButtons.setLayout(new GridLayout(4,1,0,50));
+        panelForButtons.setLayout(new GridLayout(3,1,0,50));
         panelForButtons.setBorder(BorderFactory.createEmptyBorder(90,260,90,260));
 
 ///         Adding variabels in panel for buttons
         panelForButtons.add(addPushUpsButton);
         panelForButtons.add(removePushUpsButton);
         panelForButtons.add(showPushUpsInfo);
-        panelForButtons.add(showAveragePushUpsInfo);
+
 
 ///        Just add and set sides with "BorderLayout"
         add(panelForPushUpsTitle, BorderLayout.NORTH);

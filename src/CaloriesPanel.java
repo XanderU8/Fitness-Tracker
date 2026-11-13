@@ -16,7 +16,7 @@ import java.awt.*;
 
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(4, 1, 0, 50));
+        buttonPanel.setLayout(new GridLayout(3, 1, 0, 50));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(90, 260, 90, 260));
 
 
@@ -45,11 +45,6 @@ import java.awt.*;
                 cardLayout.show(container, "Show calories information");
         });
 
-        JButton averageCaloriesButton = new JButton("Show average calories");
-        averageCaloriesButton.addActionListener(event ->{
-                cardLayout.show(container, "Average calories");
-        });
-
         JButton exitButton = new JButton("Back>");
         exitButton.addActionListener(event -> {
             cardLayout.show(container, "Main");
@@ -63,13 +58,10 @@ import java.awt.*;
         buttonPanel.add(addCaloriesButton);
         buttonPanel.add(removeCaloriesButton);
         buttonPanel.add(showCaloriesButton);
-        buttonPanel.add(averageCaloriesButton);
-
 
         add(titlePanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
 
         setVisible(true);
-
     }
 }

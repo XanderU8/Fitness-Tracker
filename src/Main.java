@@ -89,7 +89,7 @@ public class Main {
 
 
         Object[][] data = {
-                {"          MONDAY", 20, 12, 2000, 3000},
+                {"          MONDAY",  0, 0, 0, 0},
                 {"          TUESDAY", 25, 28, 1500, 4500},
                 {"          WEDNESDAY", 30, 10, 3500, 5000},
                 {"          THURSDAY", 50, 23, 3020, 3500},
@@ -167,7 +167,7 @@ public class Main {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+        new JustAtraining();
 
         window.setVisible(true);
     }

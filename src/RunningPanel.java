@@ -33,7 +33,7 @@ public RunningPanel(CardLayout cardLayout, JPanel container) {
         cardLayout.show(container,"Show steps");
     });
 
-    JButton showAverageSteps = new JButton("Average Steps");
+
 
     JButton exitButton = new JButton("Back>");
     exitButton.addActionListener(event -> {
@@ -41,7 +41,7 @@ public RunningPanel(CardLayout cardLayout, JPanel container) {
     });
 
     JPanel buttonPanel = new JPanel();
-    buttonPanel.setLayout(new GridLayout(4,1,0,50));
+    buttonPanel.setLayout(new GridLayout(3,1,0,50));
     buttonPanel.setBorder(BorderFactory.createEmptyBorder(90,260,90,260));
 
     exitButtonPanel.add(exitButton);
@@ -52,7 +52,7 @@ public RunningPanel(CardLayout cardLayout, JPanel container) {
     buttonPanel.add(addStepsButton);
     buttonPanel.add(removeSteps);
     buttonPanel.add(showSteps);
-    buttonPanel.add(showAverageSteps);
+
 
 
 

@@ -47,7 +47,7 @@ public class PullUpsPanel extends JPanel{
                 cardLayout.show(container, "Show Pull-Ups Information");
         });
 
-        JButton showPullUpsAverage = new JButton("Show average");
+
 
 
 
@@ -63,7 +63,7 @@ public class PullUpsPanel extends JPanel{
         panelForTitle.add(pullUpsTitle, BorderLayout.NORTH);
 
         JPanel panelForButtons = new JPanel();
-        panelForButtons.setLayout(new GridLayout(4,1,0,50));
+        panelForButtons.setLayout(new GridLayout(3,1,0,50));
         panelForButtons.setBorder(BorderFactory.createEmptyBorder(90,260,90,260));
 
 
@@ -72,8 +72,6 @@ public class PullUpsPanel extends JPanel{
         panelForButtons.add(addPullUpsButton);
         panelForButtons.add(removePullUpsButton);
         panelForButtons.add(showPullUpsInfo);
-        panelForButtons.add(showPullUpsAverage);
-
 
 
 

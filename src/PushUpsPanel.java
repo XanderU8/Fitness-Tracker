@@ -18,8 +18,8 @@ public class PushUpsPanel extends JPanel {
         panelForPushUpsTitle.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
 
 ///         Panel for "Exit/Back" button
-        JPanel exitButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
+        JPanel exitButtonPanel = new JPanel();
+        exitButtonPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 ///         Label for Title: "Push-Ups Menu"
         JLabel pushUpsLabelTitle = new JLabel("PUSH-Ups MENU");
         pushUpsLabelTitle.setFont(new Font("Arial", Font.BOLD, 30)); /// It´s made for the Title beauty

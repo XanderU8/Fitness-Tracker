@@ -10,7 +10,6 @@ import java.awt.*;
 
         setLayout(new BorderLayout());
 
-
         JPanel titlePanel = new JPanel(new BorderLayout());
         titlePanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
@@ -28,7 +27,6 @@ import java.awt.*;
         caloriesTittle.setFont(new Font("Arial", Font.BOLD, 30));
         caloriesTittle.setHorizontalAlignment(SwingConstants.CENTER);
         titlePanel.add(caloriesTittle);
-
 
         JButton addCaloriesButton = new JButton("Add calories");
         addCaloriesButton.addActionListener(event ->{

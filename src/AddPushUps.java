@@ -19,7 +19,6 @@ import java.awt.*;
         JPanel panelForExit = new JPanel();
         panelForExit.setLayout(new GridLayout(1,1));
         panelForExit.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        panelForExit.setLayout(new FlowLayout(FlowLayout.LEFT));
 
         JPanel panelForComfirmButton = new JPanel();
         panelForComfirmButton.setLayout(new GridLayout(1,1 ));

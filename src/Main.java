@@ -74,9 +74,14 @@ public class Main {
 
 ///             Panel for Tabel
         JPanel secondPanel = new JPanel();
-        secondPanel.setLayout(new GridLayout(1, 1));
-
+        secondPanel.setLayout(new GridLayout(2, 1));
+        secondPanel.setLayout(new BorderLayout(20,20));
 //----------------------------------------------------------------------------------
+
+        JLabel showAverage = new JLabel("Average: ");
+        showAverage.setFont(new Font("Arial", Font.BOLD, 35));
+        showAverage.setHorizontalAlignment(SwingConstants.CENTER);
+
 
 ////            String [] dataUps_CalloriesArr  That is just an array for JTable.
         String[] dataUps_CalloriesArr = {
@@ -89,13 +94,13 @@ public class Main {
 
 
         Object[][] data = {
-                {"          MONDAY",  0, 0, 0, 0},
-                {"          TUESDAY", 25, 28, 1500, 4500},
-                {"          WEDNESDAY", 30, 10, 3500, 5000},
-                {"          THURSDAY", 50, 23, 3020, 3500},
-                {"          FRIDAY", 80, 50, 4000, 2000},
-                {"          SATURDAY", 75, 45, 3800, 2300},
-                {"          SUNDAY", 30, 15, 1800, 3500}
+                {"          MONDAY", 0, 0, 0, 0},
+                {"          TUESDAY", 0, 0, 0, 0},
+                {"          WEDNESDAY", 0, 0, 0, 0},
+                {"          THURSDAY", 0, 0, 0, 0},
+                {"          FRIDAY", 0, 0, 0, 0},
+                {"          SATURDAY", 0, 0, 0, 0},
+                {"          SUNDAY", 0, 0, 0, 0}
         }; //// That is also an array for JTable.
         ///And of cource i have added days for beauty
 
@@ -138,7 +143,8 @@ public class Main {
 
 ///             And creating an Empty Border.
         JScrollPane scrollPane = new JScrollPane(trakerTabel);
-        scrollPane.setBorder(BorderFactory.createEmptyBorder(350, 50, 0, 50));
+        scrollPane.setPreferredSize(new Dimension(0,250));
+        scrollPane.setBorder(BorderFactory.createEmptyBorder( 0, 50, 20, 50));
 
 
 ///          BorderLayout and adding every buttons variable
@@ -146,8 +152,10 @@ public class Main {
         panel.add(pullupsButton);
         panel.add(calloriesButton);
         panel.add(runningButton);
+//
+        secondPanel.add(showAverage, BorderLayout.CENTER);
+        secondPanel.add(scrollPane, BorderLayout.SOUTH);
 
-        secondPanel.add(scrollPane);
 
 //--------------------------------------------------------------------------------------
 
@@ -166,9 +174,7 @@ public class Main {
         cardLayout.show(container, "Main");
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        new JustAtraining();
-
+        
         window.setVisible(true);
     }
 }

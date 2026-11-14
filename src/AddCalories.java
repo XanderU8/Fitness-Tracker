@@ -12,7 +12,7 @@ public class AddCalories extends JPanel {
         tittlePanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         JPanel exitButtonPanel = new JPanel();
-        exitButtonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        exitButtonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         exitButtonPanel.setLayout(new GridLayout(1, 1));
         exitButtonPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 

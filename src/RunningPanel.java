@@ -9,7 +9,7 @@ public RunningPanel(CardLayout cardLayout, JPanel container) {
     JPanel tittlePanel = new JPanel(new BorderLayout());
     tittlePanel.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
 
-    JPanel exitButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    JPanel exitButtonPanel = new JPanel();
     exitButtonPanel.setLayout(new GridLayout(1,1));
     exitButtonPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,350));
 

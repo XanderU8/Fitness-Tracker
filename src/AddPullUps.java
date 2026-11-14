@@ -14,7 +14,6 @@ public class AddPullUps extends JPanel {
 
         JPanel backButtonPanel = new JPanel();
         backButtonPanel.setLayout(new GridLayout(1, 1));
-        backButtonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         backButtonPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JPanel comboBoxPanel = new JPanel();

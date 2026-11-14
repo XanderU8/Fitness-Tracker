@@ -14,20 +14,14 @@ public class PullUpsPanel extends JPanel{
         JPanel panelForTitle = new JPanel(new BorderLayout());
         panelForTitle.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
 
-
-
         JPanel panelForExitButton = new JPanel();
-        panelForExitButton.setLayout(new FlowLayout(FlowLayout.LEFT));
-
-
-
+        panelForExitButton.setLayout(new GridLayout(1,1));
 
         JLabel pullUpsTitle = new JLabel("PULL-Ups MENU");
         pullUpsTitle.setFont(new Font("Arial", Font.BOLD, 30));
         pullUpsTitle.setBorder(BorderFactory.createEmptyBorder(25,15,15,15));
         pullUpsTitle.setHorizontalAlignment(SwingConstants.CENTER);
         panelForTitle.add(pullUpsTitle);
-
 
 
 ///             Create Pull-Ups Buttons. And add Pull-Ups variabels in panel
@@ -46,10 +40,6 @@ public class PullUpsPanel extends JPanel{
         showPullUpsInfo.addActionListener(event ->{
                 cardLayout.show(container, "Show Pull-Ups Information");
         });
-
-
-
-
 
         JButton backPullUpsButton = new JButton("Back>");
         backPullUpsButton.addActionListener(event -> {

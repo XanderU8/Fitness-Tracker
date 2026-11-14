@@ -13,7 +13,6 @@ public class RemovePullUps extends JPanel {
 
         JPanel exitButtonPanel = new JPanel();
         exitButtonPanel.setLayout(new GridLayout(1,1));
-        exitButtonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         exitButtonPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
         JPanel comboBoxDaysPanel = new JPanel();

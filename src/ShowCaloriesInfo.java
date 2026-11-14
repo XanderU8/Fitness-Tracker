@@ -17,7 +17,6 @@ public class ShowCaloriesInfo extends JPanel {
         tablePanel.setBorder(BorderFactory.createEmptyBorder(50, 100, 200, 100));
 
         JPanel exitButtonPanel = new JPanel();
-        exitButtonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         exitButtonPanel.setLayout(new GridLayout(1, 1));
         exitButtonPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 

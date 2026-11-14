@@ -12,7 +12,7 @@ public class ShowPushUpsInformation extends JPanel {
         JPanel panelForTittle = new JPanel(new BorderLayout());
         panelForTittle.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
-        JPanel panelForExitButton = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel panelForExitButton = new JPanel();
 
         JLabel pushUpsInfo = new JLabel("SHOW Push-Ups INFORMATION");
         pushUpsInfo.setFont(new Font("Arial", Font.BOLD, 40));

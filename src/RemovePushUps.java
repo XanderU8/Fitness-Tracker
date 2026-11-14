@@ -16,7 +16,6 @@ public class RemovePushUps extends JPanel {
 
         JPanel panelForExitButton = new JPanel();
         panelForExitButton.setLayout(new GridLayout(1,1));
-        panelForExitButton.setLayout(new FlowLayout(FlowLayout.LEFT));
         panelForExitButton.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
         JPanel panelForComboBox = new JPanel();
